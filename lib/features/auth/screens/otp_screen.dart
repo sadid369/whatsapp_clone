@@ -30,33 +30,35 @@ class OTPScreen extends ConsumerWidget {
         backgroundColor: backgroundColor,
       ),
       body: Center(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            const Text("We have sent an SMS with a code."),
-            SizedBox(
-              width: size.width * 0.5,
-              child: TextField(
-                textAlign: TextAlign.center,
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  hintText: "_ _ _ _ _ _",
-                  helperStyle: TextStyle(
-                    fontSize: 30,
-                  ),
-                ),
-                onChanged: (val) {
-                  if (val.length == 6) {
-                    print("Verifying OTP");
-                    verifyOTP(ref, context, val.trim());
-                  }
-                  print("this function was run");
-                },
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 20,
               ),
-            )
-          ],
+              const Text("We have sent an SMS with a code."),
+              SizedBox(
+                width: size.width * 0.5,
+                child: TextField(
+                  textAlign: TextAlign.center,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    hintText: "_ _ _ _ _ _",
+                    helperStyle: TextStyle(
+                      fontSize: 30,
+                    ),
+                  ),
+                  onChanged: (val) {
+                    if (val.length == 6) {
+                      print("Verifying OTP");
+                      verifyOTP(ref, context, val.trim());
+                    }
+                    print("this function was run");
+                  },
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
