@@ -39,7 +39,10 @@ class SelectContactRepository {
         print(selectedPhoneNum);
         if (selectedPhoneNum == userData.phoneNumber) {
           isFound = true;
-          Navigator.pushNamed(context, MobileChatScreen.routeName);
+          Navigator.pushNamed(context, MobileChatScreen.routeName, arguments: {
+            'name': userData.name,
+            'uid': userData.uid,
+          });
         }
       }
       if (!isFound) {
